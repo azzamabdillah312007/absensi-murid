@@ -12,7 +12,14 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('classes', function (Blueprint $table) {
-            $table->id();
+            $table->id();   
+            $table->string('nama_kelas');
+            $table->string('tingkatan');
+            $table->string('mapel');
+            $table->foreignId('teacher_id')->consrained('teachers')->onDelete('cascade');
+            $table->text('description');
+            $table->string('class_code');
+            $table->string('room');
             $table->timestamps();
         });
     }
