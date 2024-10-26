@@ -17,9 +17,9 @@ return new class extends Migration
             $table->string('tingkatan');
             $table->string('mapel');
             $table->foreignId('teacher_id')->consrained('teachers')->onDelete('cascade');
-            $table->text('description');
-            $table->string('class_code');
-            $table->string('room');
+            $table->string('deskripsi');
+            $table->integer('kode_kelas');
+            $table->string('ruangan');
             $table->timestamps();
         });
     }

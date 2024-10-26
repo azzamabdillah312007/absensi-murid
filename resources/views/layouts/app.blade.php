@@ -48,10 +48,10 @@
                         </div>
                     </div>
                     <div>
-                        <a href="/bantuan"
-                            class="{{ Request::is('bantuan') ? 'text-indigo-600 font-medium' : 'text-black font-medium' }}">Bantuan</a>
+                        <a href="/tentang"
+                            class="{{ Request::is('tentang') ? 'text-indigo-600 font-medium' : 'text-black font-medium' }}">Tentang</a>
                         <div
-                            class=" {{ Request::is('bantuan') ? ' w-18 h-[3px] rounded-full bg-indigo-600' : 'hidden' }} ">
+                            class=" {{ Request::is('tentang') ? ' w-18 h-[3px] rounded-full bg-indigo-600' : 'hidden' }} ">
                         </div>
                     </div>
 
