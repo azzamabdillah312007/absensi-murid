@@ -18,7 +18,7 @@
     <main class=" mt-7 mx-auto w-[90%]">
         <section class="flex items-center w-full h-28 rounded-md bg-white shadow px-20">
             <div>
-                <h1 class="text-3xl font-semibold text-gray-800 w-full">Selamat Datang Di Kelas Kita , <span
+                <h1 class="text-3xl font-semibold text-gray-800 w-full">Selamat datang di kelas kita , <span
                         class="text-indigo-600">Risna Fania</span> </h1>
                 <p class=" text-gray-800">Segera buat kelas anda sekarang dan manfaatkan fitur yang kami sediakan untuk
                     mengelola data murid anda</p>
@@ -54,7 +54,7 @@
                                 Guru
                             </th>
                             <th scope="col" class="px-6 py-6">
-                                Kode Kelas
+                                Ruang Kelas
                             </th>
                             <th scope="col" class="px-6 py-6">
                                 Aksi
@@ -86,8 +86,6 @@
                         </tr>
 
 
-
-
                         <tr
                             class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
                             <th scope="row"
@@ -227,8 +225,33 @@
                             </td>
                         </tr>
 
+                        @foreach ($classes as $kelas)
+                            <tr
+                                class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
+                                <th scope="row"
+                                    class="px-6 py-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                    {{ $kelas->nama_kelas }}
+                                </th>
+                                <td class="px-6 py-6">
+                                    {{ $kelas->tingkatan }}
+                                </td>
+                                <td class="px-6 py-6">
+                                    {{ $kelas->mapel }}
+                                </td>
+                                <td class="px-6 py-6">
+                                    {{ $teacher->name }}
+                                </td>
+                                <td class="px-6 py-6">
+                                    {{ $kelas->ruangan }}
+                                </td>
+                                <td class="px-6 py-6">
+                                    <a href="" class="text-indigo-400">Edit</a>
 
-                        
+                                </td>
+                            </tr>
+                        @endforeach
+
+
 
                     </tbody>
                 </table>

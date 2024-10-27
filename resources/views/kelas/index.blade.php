@@ -8,7 +8,7 @@
     <main class=" mt-7 mx-auto w-[90%]">
         <section class="flex items-center w-full h-28 rounded-md bg-white shadow px-20">
             <div>
-                <h1 class="text-3xl font-semibold text-gray-800 w-full">Selamat Datang Di Kelas Kita , <span
+                <h1 class="text-3xl font-semibold text-gray-800 w-full">Ini adalah daftar kelas kamu , <span
                         class="text-indigo-600"> {{ $teacher->name }}
                     </span> </h1>
                 <p class=" text-gray-800">Segera buat kelas anda sekarang dan manfaatkan fitur yang kami sediakan untuk
@@ -149,7 +149,7 @@
 
                             <!-- Tombol aksi -->
                             <div class="flex justify-between mt-6">
-                                <a href="/kelas-saya/{{ $kelas->id }}"
+                                <a href="/kelas-saya/detail-kelas/{{ $kelas->id }}"
                                     class="px-4 py-2 bg-blue-500 text-white text-xs font-semibold rounded hover:bg-blue-600">Lihat
                                     Kelas</a>
                                 <a href="#"

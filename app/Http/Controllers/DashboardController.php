@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
+use App\Models\Classroom;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class DashboardController extends Controller
 {
@@ -11,7 +14,13 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        //
+        $teacher_id = Auth::id();
+
+        // Menggunakan operator `=` dengan benar pada metode where
+        $classes = Classroom::where('teacher_id', $teacher_id)->get();
+        $teacher = User::where('id', $teacher_id)->first();
+
+        return view('dashboard', ['teacher' => $teacher, 'classes' => $classes]);
     }
 
     /**
