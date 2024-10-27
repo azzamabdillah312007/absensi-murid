@@ -15,9 +15,9 @@
             </div>
         </section>
 
-        <section class="flex justify-center items-center gap-4 p-6">
+        <section class="flex justify-center items-center gap-4">
             <!-- Div untuk Tugas Kelas -->
-            <div class="flex flex-col items-center bg-white text-white rounded-lg shadow-lg w-1/2">
+            <div class="flex flex-col items-center bg-white text-white rounded-lg shadow-md w-1/2 my-9">
                 <img src="https://img.freepik.com/free-vector/female-student-listening-webinar-online_74855-6461.jpg"
                     alt="Gambar Tugas Kelas" class="w-full h-64 object-cover rounded-md mb-4">
                 <div class="px-5 py-8">
@@ -35,7 +35,7 @@
             </div>
 
             <!-- Div untuk Absensi Kelas -->
-            <div class="flex flex-col items-center bg-white text-white rounded-lg shadow-lg w-1/2">
+            <div class="flex flex-col items-center bg-white text-white rounded-lg shadow-md w-1/2 my-9">
                 <img src="https://img.freepik.com/free-vector/education-learning-concept-love-reading-people-reading-students-studying-preparing-examination-library-book-lovers-readers-modern-literature-flat-cartoon-vector-illustration_1150-61140.jpg"
                     alt="Gambar Absensi Kelas" class="w-full h-64 object-cover rounded-md mb-4">
                 <div class="px-2 py-8">

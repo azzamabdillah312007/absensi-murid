@@ -19,7 +19,7 @@
         <section class="flex items-center w-full h-28 rounded-md bg-white shadow px-20">
             <div>
                 <h1 class="text-3xl font-semibold text-gray-800 w-full">Selamat datang di kelas kita , <span
-                        class="text-indigo-600">Risna Fania</span> </h1>
+                        class="text-indigo-600">{{ $teacher->name }}</span> </h1>
                 <p class=" text-gray-800">Segera buat kelas anda sekarang dan manfaatkan fitur yang kami sediakan untuk
                     mengelola data murid anda</p>
             </div>

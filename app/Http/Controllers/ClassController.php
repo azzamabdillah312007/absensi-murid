@@ -68,18 +68,23 @@ class ClassController extends Controller
         return redirect()->route('kelas.index');
     }
 
-    public function showDetailClass(string $id){
-        
+    public function showDetailClass(string $id)
+    {
+
         $teacher_id = Auth::id();
 
-        $dataDetailClass = Classroom::where('id',$id)->first();
+        $dataDetailClass = Classroom::where('id', $id)->first();
         $teacher = User::where('id', $teacher_id)->first();
 
         if (!$dataDetailClass) {
-            return redirect('kelas.index')->withErrors('error','Kelas tidak di temukan');
+            return redirect('kelas.index')->withErrors('error', 'Kelas tidak di temukan');
         }
 
-        return view('kelas.detail-kelas' , ['teacher' => $teacher ,'detailKelas' => $dataDetailClass]);
+        return view('kelas.detail-kelas', ['teacher' => $teacher, 'detailKelas' => $dataDetailClass]);
+    }
+
+    public function showTaskClass(){
+        return view('kelas.tugas-kelas');
     }
 
     /**
