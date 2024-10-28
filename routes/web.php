@@ -25,9 +25,8 @@ Route::get('/kelas-saya', [ClassController::class, 'index'])->name('kelas.index'
 Route::get('/kelas-saya/tambah-kelas', [ClassController::class, 'showAddClass'])->name('kelas.tambah-kelas')->middleware('auth');
 Route::post('/kelas-saya/tambah-kelas', [ClassController::class, 'create'])->name('kelas.create-kelas')->middleware('auth');
 Route::get('/kelas-saya/detail-kelas/{id}' , [ClassController::class , 'showDetailClass'])->name('kelas.detail-kelas')->middleware('auth');
-Route::get('/kelas-saya/detail-kelas/{id}/tugas', [ClassController::class, 'showTaskClass'])->name('kelas.tugas.kelas')->middleware('auth');
-
-
+Route::get('/kelas-saya/detail-kelas/{id}/tambah-murid' , [ClassController::class , 'showAddStudent'])->name('kelas.tambah-murid')->middleware('auth');
+Route::post('/kelas-saya/detail-kelas/{id}/tambah-murid' , [ClassController::class , 'addStudent'])->name('kelas.create-murid')->middleware('auth');
 
 Route::get('/tentang', function () {
     return view('tentang.index');

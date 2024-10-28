@@ -11,8 +11,6 @@
 
             <div class="w-[70%] mx-auto bg-white p-8 shadow-md rounded-md">
                 <div class="">
-                    <img src="https://img.freepik.com/free-vector/nursery-school-abstract-concept-vector-illustration-high-quality-pre-school-program-cooperative-private-nursery-educational-space-bilingual-kindergarten-yealding-infant-abstract-metaphor_335657-4146.jpg?semt=ais_hybrid"
-                        class="w-full">
                     <form action="{{ route('kelas.create-kelas') }}" method="POST">
                         @csrf
                         <div class="formbold-form-title">

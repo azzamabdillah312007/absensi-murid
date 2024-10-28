@@ -8,49 +8,247 @@
     <main class=" mt-7 mx-auto w-[90%]">
         <section class="flex items-center w-full h-28 rounded-md bg-white shadow px-20">
             <div>
-                <h1 class="text-3xl font-semibold text-gray-800 w-full">Selamat datang di kelas anda <span
+                <h1 class="text-3xl font-semibold text-gray-800 w-full">Selamat datang di kelas anda<span
                         class="text-indigo-600"> {{ $detailKelas->nama_kelas }}
                     </span> </h1>
                 <p class=" text-gray-800">{{ $detailKelas->deskripsi }}</p>
             </div>
         </section>
 
-        <section class="flex justify-center items-center gap-4">
-            <!-- Div untuk Tugas Kelas -->
-            <div class="flex flex-col items-center bg-white text-white rounded-lg shadow-md w-1/2 my-9">
-                <img src="https://img.freepik.com/free-vector/female-student-listening-webinar-online_74855-6461.jpg"
-                    alt="Gambar Tugas Kelas" class="w-full h-64 object-cover rounded-md mb-4">
-                <div class="px-5 py-8">
-                    <div class="flex justify-between items-center">
-                        <a href="/kelas-saya/detail-kelas/{{ $detailKelas->id }}/tugas" class="text-2xl font-semibold mb-2 text-indigo-600 underline">Tugas Kelas</a>
-                        <span class=" text-base font-semibold text-gray-700 mb-2">{{ $teacher->name }}</span>
-                    </div>
-                    <p class="text-justify text-gray-700">Di sini kamu dapat melihat dan mengelola seluruh tugas yang
-                        telah diberikan untuk kelas ini.
-                        Pastikan untuk selalu memeriksa tugas-tugas yang ada agar tidak terlewat, dan kerjakan dengan
-                        sungguh-sungguh untuk mencapai hasil yang maksimal. Akses detail setiap tugas, tanggal
-                        pengumpulan,
-                        dan panduan pengerjaan langsung dari halaman ini.</p>
+
+        <section class="py-10">
+            <div class="flex justify-between pb-5">
+                <div class="w-full max-w-sm min-w-[200px]">
+                    <input
+                        class="w-full bg-white placeholder:text-slate-400 text-slate-700 text-sm border border-slate-200 rounded-md px-3 py-2 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-300 shadow-sm focus:shadow"
+                        placeholder="Cari kelas">
                 </div>
+
+                <button type="button"
+                    class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
+                    <a href="/kelas-saya/detail-kelas/{{ $detailKelas->id }}/tambah-murid">Tambah Murid</a></button>
+            </div>
+            <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+                <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                    <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                        <tr>
+                            <th scope="col" class="px-6 py-6">
+                                Nama kelas
+                            </th>
+                            <th scope="col" class="px-6 py-6">
+                                Tingkatan
+                            </th>
+                            <th scope="col" class="px-6 py-6">
+                                Mapel
+                            </th>
+                            <th scope="col" class="px-6 py-6">
+                                Guru
+                            </th>
+                            <th scope="col" class="px-6 py-6">
+                                Ruang Kelas
+                            </th>
+                            <th scope="col" class="px-6 py-6">
+                                Aksi
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr
+                            class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
+                            <th scope="row"
+                                class="px-6 py-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                Rpl Independent
+                            </th>
+                            <td class="px-6 py-6">
+                                SMK
+                            </td>
+                            <td class="px-6 py-6">
+                                Bahsa indonesia
+                            </td>
+                            <td class="px-6 py-6">
+                                Rahasia
+                            </td>
+                            <td class="px-6 py-6">
+                                090909
+                            </td>
+                            <td class="px-6 py-6">
+                                <a href="" class="text-indigo-400">Edit</a>
+                            </td>
+                        </tr>
+
+
+                        <tr
+                            class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
+                            <th scope="row"
+                                class="px-6 py-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                Rpl Independent
+                            </th>
+                            <td class="px-6 py-6">
+                                SMK
+                            </td>
+                            <td class="px-6 py-6">
+                                Bahsa indonesia
+                            </td>
+                            <td class="px-6 py-6">
+                                Rahasia
+                            </td>
+                            <td class="px-6 py-6">
+                                090909
+                            </td>
+                            <td class="px-6 py-6">
+                                <a href="" class="text-indigo-400">Edit</a>
+
+                            </td>
+                        </tr>
+                        <tr
+                            class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
+                            <th scope="row"
+                                class="px-6 py-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                Rpl Independent
+                            </th>
+                            <td class="px-6 py-6">
+                                SMK
+                            </td>
+                            <td class="px-6 py-6">
+                                Bahsa indonesia
+                            </td>
+                            <td class="px-6 py-6">
+                                Rahasia
+                            </td>
+                            <td class="px-6 py-6">
+                                090909
+                            </td>
+                            <td class="px-6 py-6">
+                                <a href="" class="text-indigo-400">Edit</a>
+
+                            </td>
+                        </tr>
+                        <tr
+                            class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
+                            <th scope="row"
+                                class="px-6 py-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                Rpl Independent
+                            </th>
+                            <td class="px-6 py-6">
+                                SMK
+                            </td>
+                            <td class="px-6 py-6">
+                                Bahsa indonesia
+                            </td>
+                            <td class="px-6 py-6">
+                                Rahasia
+                            </td>
+                            <td class="px-6 py-6">
+                                090909
+                            </td>
+                            <td class="px-6 py-6">
+                                <a href="" class="text-indigo-400">Edit</a>
+
+                            </td>
+                        </tr>
+                        <tr
+                            class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
+                            <th scope="row"
+                                class="px-6 py-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                Rpl Independent
+                            </th>
+                            <td class="px-6 py-6">
+                                SMK
+                            </td>
+                            <td class="px-6 py-6">
+                                Bahsa indonesia
+                            </td>
+                            <td class="px-6 py-6">
+                                Rahasia
+                            </td>
+                            <td class="px-6 py-6">
+                                090909
+                            </td>
+                            <td class="px-6 py-6">
+                                <a href="" class="text-indigo-400">Edit</a>
+
+                            </td>
+                        </tr>
+                        <tr
+                            class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
+                            <th scope="row"
+                                class="px-6 py-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                Rpl Independent
+                            </th>
+                            <td class="px-6 py-6">
+                                SMK
+                            </td>
+                            <td class="px-6 py-6">
+                                Bahsa indonesia
+                            </td>
+                            <td class="px-6 py-6">
+                                Rahasia
+                            </td>
+                            <td class="px-6 py-6">
+                                090909
+                            </td>
+                            <td class="px-6 py-6">
+                                <a href="" class="text-indigo-400">Edit</a>
+
+                            </td>
+                        </tr>
+                        <tr
+                            class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
+                            <th scope="row"
+                                class="px-6 py-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                Rpl Independent
+                            </th>
+                            <td class="px-6 py-6">
+                                SMK
+                            </td>
+                            <td class="px-6 py-6">
+                                Bahsa indonesia
+                            </td>
+                            <td class="px-6 py-6">
+                                Rahasia
+                            </td>
+                            <td class="px-6 py-6">
+                                090909
+                            </td>
+                            <td class="px-6 py-6">
+                                <a href="" class="text-indigo-400">Edit</a>
+
+                            </td>
+                        </tr>
+{{-- 
+                        @foreach ($classes as $kelas)
+                            <tr
+                                class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
+                                <th scope="row"
+                                    class="px-6 py-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                    {{ $kelas->nama_kelas }}
+                                </th>
+                                <td class="px-6 py-6">
+                                    {{ $kelas->tingkatan }}
+                                </td>
+                                <td class="px-6 py-6">
+                                    {{ $kelas->mapel }}
+                                </td>
+                                <td class="px-6 py-6">
+                                    {{ $teacher->name }}
+                                </td>
+                                <td class="px-6 py-6">
+                                    {{ $kelas->ruangan }}
+                                </td>
+                                <td class="px-6 py-6">
+                                    <a href="" class="text-indigo-400">Edit</a>
+
+                                </td>
+                            </tr>
+                        @endforeach --}}
+
+
+
+                    </tbody>
+                </table>
             </div>
 
-            <!-- Div untuk Absensi Kelas -->
-            <div class="flex flex-col items-center bg-white text-white rounded-lg shadow-md w-1/2 my-9">
-                <img src="https://img.freepik.com/free-vector/education-learning-concept-love-reading-people-reading-students-studying-preparing-examination-library-book-lovers-readers-modern-literature-flat-cartoon-vector-illustration_1150-61140.jpg"
-                    alt="Gambar Absensi Kelas" class="w-full h-64 object-cover rounded-md mb-4">
-                <div class="px-2 py-8">
-                    <div class="flex justify-between items-center">
-                        <a href="/kelas-saya/detail-kelas/{{ $detailKelas->id }}/absensi" class="text-2xl font-semibold mb-2 text-indigo-600 underline">Absensi Kelas</a>
-                        <span class=" text-base font-semibold text-gray-700 mb-2">{{ $teacher->name }}</span>
-                    </div>
-                    <p class="text-justify text-gray-700"> Pantau dan kelola kehadiran siswa di kelas ini secara
-                        langsung. Fitur ini memungkinkan kamu untuk
-                        melihat siapa saja yang hadir atau tidak hadir, dan mencatat kehadiran dengan mudah. Dengan data
-                        absensi yang lengkap, kamu bisa mendapatkan gambaran tentang keterlibatan siswa dan memastikan
-                        bahwa semua siswa mengikuti proses belajar dengan baik.</p>
-                </div>
-            </div>
-        </section>
+
 
 
 
