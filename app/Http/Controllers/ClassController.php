@@ -70,23 +70,20 @@ class ClassController extends Controller
         return redirect()->route('kelas.index');
     }
 
-    public function showDetailClass(string $id)
+    public function showDetailClass($classID)
     {
         $teacher_id = Auth::id();
 
-        $dataDetailClass = Classroom::where('id', $id)->first();
-        $teacher = User::where('id', $teacher_id)->first();
+        $dataDetailClass = Classroom::where('id', $teacher_id)->first();
+        $student = Student::where('classes_id', $classID)->get();
 
-        if (!$dataDetailClass) {
-            return redirect('kelas.index')->withErrors('error', 'Kelas tidak di temukan');
-        }
+        return view('kelas.detail-kelas', ['murid' => $student , 'detailKelas' => $dataDetailClass]);
 
-        return view('kelas.detail-kelas', ['teacher' => $teacher, 'detailKelas' => $dataDetailClass]);
     }
 
-    public function showAddStudent()
+    public function showAddStudent($class_id)
     {
-        return view('kelas.tambah-murid');
+        return view('kelas.tambah-murid' ,  ['class_id' => $class_id]);
     }
 
     public function addStudent(Request $request)
@@ -123,48 +120,9 @@ class ClassController extends Controller
             'orang_tua' => $request->orang_tua,
         ]);
 
-        return redirect()->route('kelas.detail-kelas' ,  ['id' => $request->classes_id]);
+        return redirect()->route('kelas.detail-kelas', ['class_id' => $request->classes_id]);
     }
 
-    // public function addStudent(Request $request)
-    // {
-    //     $request->validate([
-    //         'nama' => 'string',
-    //         'nis' => 'numeric',
-    //         'tanggal_lahir' => 'string',
-    //         'alamat' => 'string',
-    //         'no_hp' => 'numeric',
-    //         'email' => 'string',
-    //         'jenis_kelamin' => 'string',
-    //         'orang_tua' => 'string'
-    //     ], [
-    //         'nama.required' => 'nama wajib di isi',
-    //         'nis.required' => 'nis wajib di isi dan harus beruba nomor',
-    //         'tanggal_lahir.required' => 'tanggal_lahir wajib di isi',
-    //         'alamat.required' => 'alamat wajib di isi',
-    //         'no_hp.required' => 'no hp wajib di isi',
-    //         'email.required' => 'email kelas wajib di isi dan harus memakai tanda @',
-    //         'jenis_kelamin.required' => 'jenis kelamin wajib di pilih',
-    //         'orang_tua.required' => 'nama orang tua wajib di isi',
-    //     ]);
-
-    //     Student::create([
-    //         'nama' => $request->nama,
-    //         'nis' => $request->nis,
-    //         'tanggal_lahir' => $request->tanggal_lahir,
-    //         'alamat' => $request->alamat,
-    //         'no_hp' => $request->no_hp,
-    //         'email' => $request->email,
-    //         'jenis_kelamin' => $request->jenis_kelamin,
-    //         'classes_id' => $request->classes_id,
-    //         'orang_tua' => $request->orang_tua,
-
-
-    //     ]);
-
-
-    //     return redirect()->route('kelas.detail-kelas');
-    // }
 
     /**
      * Store a newly created resource in storage.

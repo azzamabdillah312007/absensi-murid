@@ -17,35 +17,219 @@
 
 
         <section class="py-10">
-            <div class="flex justify-between pb-5">
+            <div class=" bg-white rounded-full shadow-md flex justify-between items-center py-5 px-8 mb-4">
                 <div class="w-full max-w-sm min-w-[200px]">
-                    <input
+                    {{-- <input
                         class="w-full bg-white placeholder:text-slate-400 text-slate-700 text-sm border border-slate-200 rounded-md px-3 py-2 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-300 shadow-sm focus:shadow"
-                        placeholder="Cari kelas">
+                        placeholder="Cari kelas"> --}}
+                    <h2 class="text-2xl text text-gray-800 font-semibold">Daftar murid di kelas</h2>
                 </div>
 
                 <button type="button"
                     class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
-                    <a href="/kelas-saya/detail-kelas/{{ $detailKelas->id }}/tambah-murid">Tambah Murid</a></button>
+                    <a href="/kelas-saya/detail-kelas/{{ $detailKelas->id }}/tambah-murid"
+                        class="flex items-center gap-2">Tambah Murid
+                        <x-letsicon-user class="w-4 h-4" />
+                    </a></button>
             </div>
+
+            {{-- table --}}
             <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
                 <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
                     <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                         <tr>
                             <th scope="col" class="px-6 py-6">
-                                Nama kelas
+                                Nama
                             </th>
                             <th scope="col" class="px-6 py-6">
-                                Tingkatan
+                                Nis
                             </th>
                             <th scope="col" class="px-6 py-6">
-                                Mapel
+                                No Hp
                             </th>
                             <th scope="col" class="px-6 py-6">
-                                Guru
+                                Jenis Kelamin
                             </th>
                             <th scope="col" class="px-6 py-6">
-                                Ruang Kelas
+                                Orang
+                            </th>
+                            <th scope="col" class="px-6 py-6">
+                                Aksi
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+
+
+                        <tr
+                            class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
+                            <th scope="row"
+                                class="px-6 py-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                Azzam Abdillah
+                            </th>
+                            <td class="px-6 py-6">
+                                090909
+                            </td>
+                            <td class="px-6 py-6">
+                                089291929192
+                            </td>
+                            <td class="px-6 py-6">
+                                Laki Laki
+                            </td>
+                            <td class="px-6 py-6">
+                                Sandi Eka Cahyadi
+                            </td>
+                            <td class="px-6 py-6 flex gap-5">
+                                <a href=""
+                                    class="flex items-center gap-2 text-white bg-red-500 px-3 py-2 rounded-md"><x-monoicon-delete-alt class="w-4 h-4" />
+                                    Hapus</a>
+                                <a href="" class="flex items-center gap-2 text-white bg-emerald-500 px-3 py-2 rounded-md"><x-ri-edit-line class="w-4 h-4" />Detail</a>
+                            </td>
+                        </tr>
+
+                        <tr
+                            class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
+                            <th scope="row"
+                                class="px-6 py-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                Azzam Abdillah
+                            </th>
+                            <td class="px-6 py-6">
+                                090909
+                            </td>
+                            <td class="px-6 py-6">
+                                089291929192
+                            </td>
+                            <td class="px-6 py-6">
+                                Laki Laki
+                            </td>
+                            <td class="px-6 py-6">
+                                Sandi Eka Cahyadi
+                            </td>
+                            <td class="px-6 py-6 flex gap-5">
+                                <a href=""
+                                    class="flex items-center gap-2 text-white bg-red-500 px-3 py-2 rounded-md"><x-monoicon-delete-alt class="w-4 h-4" />
+                                    Hapus</a>
+                                <a href="" class="flex items-center gap-2 text-white bg-emerald-500 px-3 py-2 rounded-md"><x-ri-edit-line class="w-4 h-4" />Detail</a>
+                            </td>
+                        </tr>
+
+                        @if (empty($murid))
+                            <h1 class="text-3xl text-gray-800 text-center">Anda belum mempunyai murid</h1>
+                        @endif
+
+                        @foreach ($murid as $murid)
+                            <tr
+                                class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
+                                <th scope="row"
+                                    class="px-6 py-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                    {{ $murid->nama }}
+                                </th>
+                                <td class="px-6 py-6">
+                                    {{ $murid->nis }}
+                                </td>
+                                <td class="px-6 py-6">
+                                    {{ $murid->no_hp }}
+                                </td>
+                                <td class="px-6 py-6">
+                                    @if ($murid->jenis_kelamin == 'P')
+                                        Perempuan
+                                    @elseif ($murid->jenis_kelamin == 'L')
+                                        Laki-Laki
+                                    @endif
+                                </td>
+                                <td class="px-6 py-6">
+                                    {{ $murid->orang_tua }}
+                                </td>
+                                <td class="px-6 py-6 flex gap-5">
+                                    <a href=""
+                                        class="flex items-center gap-2 text-white bg-red-500 px-3 py-2 rounded-md"><x-monoicon-delete-alt class="w-4 h-4" />
+                                        Hapus</a>
+                                    <a href="" class="flex items-center gap-2 text-white bg-emerald-500 px-3 py-2 rounded-md"><x-ri-edit-line class="w-4 h-4" />Detail</a>
+                                </td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
+
+
+        </section>
+
+        <section class="py-10">
+            <div class=" bg-white rounded-full shadow-md flex justify-between items-center py-5 px-8 mb-4">
+                <div class="w-full max-w-sm min-w-[200px]">
+                    <h2 class="text-2xl text text-gray-800 font-semibold">Daftar absensi kelas</h2>
+                </div>
+
+                <button
+                    class="flex items-center gap-2 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+                    type="button" onclick="toggleModal('modal-id')">
+                    <x-clarity-list-line class="w-4 h-4" /> Tambah absensi
+                </button>
+                <div class="hidden overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none justify-center items-center"
+                    id="modal-id">
+                    <div class="relative w-auto my-6 mx-auto max-w-3xl">
+                        <!--content-->
+                        <div
+                            class="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
+                            <!--header-->
+                            <div
+                                class="flex items-start justify-between p-5 border-b border-solid border-blueGray-200 rounded-t">
+                                <h3 class="text-3xl font-semibold">
+                                    Tanggal absensi
+                                </h3>
+                                <button
+                                    class="p-1 ml-auto bg-transparent border-0 text-black opacity-5 float-right text-3xl leading-none font-semibold outline-none focus:outline-none"
+                                    onclick="toggleModal('modal-id')">
+                                    <span
+                                        class="bg-transparent text-black opacity-5 h-6 w-6 text-2xl block outline-none focus:outline-none">
+                                        ×
+                                    </span>
+                                </button>
+                            </div>
+                            <!--body-->
+                            <div class="relative p-6 flex-auto">
+                                <input type="date" name="nis" id="nis"
+                                    class="formbold-form-input w-full rounded-md" placeholder="Masukan nis" />
+                            </div>
+                            <!--footer-->
+                            <div
+                                class="flex items-center justify-end p-6 border-t border-solid border-blueGray-200 rounded-b">
+                                <button
+                                    class="text-red-500 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+                                    type="button" onclick="toggleModal('modal-id')">
+                                    Close
+                                </button>
+                                <button
+                                    class="bg-emerald-500 text-white active:bg-emerald-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+                                    type="button" onclick="toggleModal('modal-id')">
+                                    Save Changes
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="hidden opacity-25 fixed inset-0 z-40 bg-black" id="modal-id-backdrop"></div>
+                <script type="text/javascript">
+                    function toggleModal(modalID) {
+                        document.getElementById(modalID).classList.toggle("hidden");
+                        document.getElementById(modalID + "-backdrop").classList.toggle("hidden");
+                        document.getElementById(modalID).classList.toggle("flex");
+                        document.getElementById(modalID + "-backdrop").classList.toggle("flex");
+                    }
+                </script>
+            </div>
+
+            <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+                <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                    <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                        <tr>
+                            <th scope="col" class="px-6 py-6">
+                                Tanggal absensi
+                            </th>
+                            <th scope="col" class="px-6 py-6">
+                                Nama guru
                             </th>
                             <th scope="col" class="px-6 py-6">
                                 Aksi
@@ -57,200 +241,37 @@
                             class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
                             <th scope="row"
                                 class="px-6 py-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                Rpl Independent
+                                31-03-2008
                             </th>
                             <td class="px-6 py-6">
-                                SMK
+                                Risna fania
                             </td>
-                            <td class="px-6 py-6">
-                                Bahsa indonesia
-                            </td>
-                            <td class="px-6 py-6">
-                                Rahasia
-                            </td>
-                            <td class="px-6 py-6">
-                                090909
-                            </td>
-                            <td class="px-6 py-6">
-                                <a href="" class="text-indigo-400">Edit</a>
-                            </td>
-                        </tr>
-
-
-                        <tr
-                            class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
-                            <th scope="row"
-                                class="px-6 py-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                Rpl Independent
-                            </th>
-                            <td class="px-6 py-6">
-                                SMK
-                            </td>
-                            <td class="px-6 py-6">
-                                Bahsa indonesia
-                            </td>
-                            <td class="px-6 py-6">
-                                Rahasia
-                            </td>
-                            <td class="px-6 py-6">
-                                090909
-                            </td>
-                            <td class="px-6 py-6">
-                                <a href="" class="text-indigo-400">Edit</a>
-
+                            <td class="px-6 py-6 flex gap-5 ">
+                                <a href=""
+                                    class="flex items-center gap-2 text-white bg-red-500 px-3 py-2 rounded-md"><x-monoicon-delete-alt class="w-4 h-4" />
+                                    Hapus</a>
+                                <a href="" class="flex items-center gap-2 text-white bg-emerald-500 px-3 py-2 rounded-md"><x-ri-edit-line class="w-4 h-4" />Detail</a>
                             </td>
                         </tr>
                         <tr
                             class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
                             <th scope="row"
                                 class="px-6 py-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                Rpl Independent
+                                31-03-2008
                             </th>
                             <td class="px-6 py-6">
-                                SMK
+                                Risna fania
                             </td>
-                            <td class="px-6 py-6">
-                                Bahsa indonesia
-                            </td>
-                            <td class="px-6 py-6">
-                                Rahasia
-                            </td>
-                            <td class="px-6 py-6">
-                                090909
-                            </td>
-                            <td class="px-6 py-6">
-                                <a href="" class="text-indigo-400">Edit</a>
-
+                            <td class="px-6 py-6 flex gap-5">
+                                <a href=""
+                                    class="flex items-center gap-2 text-white bg-red-500 px-3 py-2 rounded-md"><x-monoicon-delete-alt class="w-4 h-4" />
+                                    Hapus</a>
+                                <a href="" class="flex items-center gap-2 text-white bg-emerald-500 px-3 py-2 rounded-md"><x-ri-edit-line class="w-4 h-4" />Detail</a>
                             </td>
                         </tr>
-                        <tr
-                            class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
-                            <th scope="row"
-                                class="px-6 py-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                Rpl Independent
-                            </th>
-                            <td class="px-6 py-6">
-                                SMK
-                            </td>
-                            <td class="px-6 py-6">
-                                Bahsa indonesia
-                            </td>
-                            <td class="px-6 py-6">
-                                Rahasia
-                            </td>
-                            <td class="px-6 py-6">
-                                090909
-                            </td>
-                            <td class="px-6 py-6">
-                                <a href="" class="text-indigo-400">Edit</a>
-
-                            </td>
-                        </tr>
-                        <tr
-                            class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
-                            <th scope="row"
-                                class="px-6 py-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                Rpl Independent
-                            </th>
-                            <td class="px-6 py-6">
-                                SMK
-                            </td>
-                            <td class="px-6 py-6">
-                                Bahsa indonesia
-                            </td>
-                            <td class="px-6 py-6">
-                                Rahasia
-                            </td>
-                            <td class="px-6 py-6">
-                                090909
-                            </td>
-                            <td class="px-6 py-6">
-                                <a href="" class="text-indigo-400">Edit</a>
-
-                            </td>
-                        </tr>
-                        <tr
-                            class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
-                            <th scope="row"
-                                class="px-6 py-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                Rpl Independent
-                            </th>
-                            <td class="px-6 py-6">
-                                SMK
-                            </td>
-                            <td class="px-6 py-6">
-                                Bahsa indonesia
-                            </td>
-                            <td class="px-6 py-6">
-                                Rahasia
-                            </td>
-                            <td class="px-6 py-6">
-                                090909
-                            </td>
-                            <td class="px-6 py-6">
-                                <a href="" class="text-indigo-400">Edit</a>
-
-                            </td>
-                        </tr>
-                        <tr
-                            class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
-                            <th scope="row"
-                                class="px-6 py-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                Rpl Independent
-                            </th>
-                            <td class="px-6 py-6">
-                                SMK
-                            </td>
-                            <td class="px-6 py-6">
-                                Bahsa indonesia
-                            </td>
-                            <td class="px-6 py-6">
-                                Rahasia
-                            </td>
-                            <td class="px-6 py-6">
-                                090909
-                            </td>
-                            <td class="px-6 py-6">
-                                <a href="" class="text-indigo-400">Edit</a>
-
-                            </td>
-                        </tr>
-{{-- 
-                        @foreach ($classes as $kelas)
-                            <tr
-                                class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
-                                <th scope="row"
-                                    class="px-6 py-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                    {{ $kelas->nama_kelas }}
-                                </th>
-                                <td class="px-6 py-6">
-                                    {{ $kelas->tingkatan }}
-                                </td>
-                                <td class="px-6 py-6">
-                                    {{ $kelas->mapel }}
-                                </td>
-                                <td class="px-6 py-6">
-                                    {{ $teacher->name }}
-                                </td>
-                                <td class="px-6 py-6">
-                                    {{ $kelas->ruangan }}
-                                </td>
-                                <td class="px-6 py-6">
-                                    <a href="" class="text-indigo-400">Edit</a>
-
-                                </td>
-                            </tr>
-                        @endforeach --}}
-
-
-
                     </tbody>
                 </table>
             </div>
-
-
-
-
-
+        </section>
     </main>
 </x-app-layout>

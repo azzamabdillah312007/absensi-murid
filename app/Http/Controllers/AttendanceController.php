@@ -17,6 +17,11 @@ class AttendanceController extends Controller
     /**
      * Show the form for creating a new resource.
      */
+
+    public function showAddAttendance($class_id){
+        return view('kelas.tambah-absensi' , ['class_id' => $class_id]);
+    }
+
     public function create()
     {
         //

@@ -1,6 +1,4 @@
-    @php
-        $kelasId = request()->segment(3);
-    @endphp
+
     <x-app-layout>
 
 
@@ -18,7 +16,7 @@
                 <div class="w-[70%] mx-auto bg-white p-8 shadow-md rounded-md">
                     <div class="">
 
-                        <form action="{{ route('kelas.create-murid', ['id' => $kelasId]) }}" method="POST">
+                        <form action="{{ route('kelas.create-murid', ['class_id' => $class_id]) }}" method="POST">
                             @csrf
                             <div class="formbold-form-title">
                                 <h2 class="">Tambah murid</h2>
@@ -83,7 +81,7 @@
                                 </select>
                             </div>
 
-                            <input type="hidden" name="classes_id" value="{{ $kelasId }}">
+                            <input type="hidden" name="classes_id" value="{{ $class_id }}">
 
 
                             <div class="pb-5">
