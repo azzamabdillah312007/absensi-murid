@@ -4,8 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Task;
 use App\Models\User;
-use App\Models\Classroom;
 use App\Models\Student;
+use App\Models\Classroom;
+use App\Models\Attendance;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use PhpParser\Node\Expr\Cast\String_;
@@ -76,14 +77,14 @@ class ClassController extends Controller
 
         $dataDetailClass = Classroom::where('id', $teacher_id)->first();
         $student = Student::where('classes_id', $classID)->get();
+        $attandances = Attendance::where('class_id', $classID)->get();
 
-        return view('kelas.detail-kelas', ['murid' => $student , 'detailKelas' => $dataDetailClass]);
-
+        return view('kelas.detail-kelas', ['murid' => $student, 'detailKelas' => $dataDetailClass, 'absensi' => $attandances]);
     }
 
     public function showAddStudent($class_id)
     {
-        return view('kelas.tambah-murid' ,  ['class_id' => $class_id]);
+        return view('kelas.tambah-murid',  ['class_id' => $class_id]);
     }
 
     public function addStudent(Request $request)

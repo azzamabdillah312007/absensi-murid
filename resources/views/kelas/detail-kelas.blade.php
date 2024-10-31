@@ -82,9 +82,15 @@
                             </td>
                             <td class="px-6 py-6 flex gap-5">
                                 <a href=""
-                                    class="flex items-center gap-2 text-white bg-red-500 px-3 py-2 rounded-md"><x-monoicon-delete-alt class="w-4 h-4" />
+                                    class="flex items-center gap-2 text-white bg-red-500 px-3 py-2 rounded-md"><x-monoicon-delete-alt
+                                        class="w-4 h-4" />
                                     Hapus</a>
-                                <a href="" class="flex items-center gap-2 text-white bg-emerald-500 px-3 py-2 rounded-md"><x-ri-edit-line class="w-4 h-4" />Detail</a>
+                                <a href=""
+                                    class="flex items-center gap-2 text-white bg-emerald-500 px-3 py-2 rounded-md"><x-ri-edit-line
+                                        class="w-4 h-4" />Edit</a>
+                                <a href=""
+                                    class="flex items-center gap-2 text-white bg-amber-400 px-3 py-2 rounded-md"><x-letsicon-search
+                                        class="w-4 h-4" />Detail</a>
                             </td>
                         </tr>
 
@@ -108,9 +114,15 @@
                             </td>
                             <td class="px-6 py-6 flex gap-5">
                                 <a href=""
-                                    class="flex items-center gap-2 text-white bg-red-500 px-3 py-2 rounded-md"><x-monoicon-delete-alt class="w-4 h-4" />
+                                    class="flex items-center gap-2 text-white bg-red-500 px-3 py-2 rounded-md"><x-monoicon-delete-alt
+                                        class="w-4 h-4" />
                                     Hapus</a>
-                                <a href="" class="flex items-center gap-2 text-white bg-emerald-500 px-3 py-2 rounded-md"><x-ri-edit-line class="w-4 h-4" />Detail</a>
+                                <a href=""
+                                    class="flex items-center gap-2 text-white bg-emerald-500 px-3 py-2 rounded-md"><x-ri-edit-line
+                                        class="w-4 h-4" />Edit</a>
+                                <a href=""
+                                    class="flex items-center gap-2 text-white bg-amber-400 px-3 py-2 rounded-md"><x-letsicon-search
+                                        class="w-4 h-4" />Detail</a>
                             </td>
                         </tr>
 
@@ -143,9 +155,15 @@
                                 </td>
                                 <td class="px-6 py-6 flex gap-5">
                                     <a href=""
-                                        class="flex items-center gap-2 text-white bg-red-500 px-3 py-2 rounded-md"><x-monoicon-delete-alt class="w-4 h-4" />
+                                        class="flex items-center gap-2 text-white bg-red-500 px-3 py-2 rounded-md"><x-monoicon-delete-alt
+                                            class="w-4 h-4" />
                                         Hapus</a>
-                                    <a href="" class="flex items-center gap-2 text-white bg-emerald-500 px-3 py-2 rounded-md"><x-ri-edit-line class="w-4 h-4" />Detail</a>
+                                    <a href=""
+                                        class="flex items-center gap-2 text-white bg-emerald-500 px-3 py-2 rounded-md"><x-ri-edit-line
+                                            class="w-4 h-4" />Edit</a>
+                                    <a href=""
+                                        class="flex items-center gap-2 text-white bg-amber-400 px-3 py-2 rounded-md"><x-letsicon-search
+                                            class="w-4 h-4" />Detail</a>
                                 </td>
                             </tr>
                         @endforeach
@@ -171,8 +189,11 @@
                     id="modal-id">
                     <div class="relative w-auto my-6 mx-auto max-w-3xl">
                         <!--content-->
-                        <div
+                        <form action="{{ route('kelas.create-absensi', ['class_id' => $detailKelas->id]) }}"
+                            method="POST"
                             class="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
+
+                            @csrf
                             <!--header-->
                             <div
                                 class="flex items-start justify-between p-5 border-b border-solid border-blueGray-200 rounded-t">
@@ -190,8 +211,8 @@
                             </div>
                             <!--body-->
                             <div class="relative p-6 flex-auto">
-                                <input type="date" name="nis" id="nis"
-                                    class="formbold-form-input w-full rounded-md" placeholder="Masukan nis" />
+                                <input type="date" name="tanggal" id="tanggal"
+                                    class="formbold-form-input w-full rounded-md" placeholder="Masukan tanggal" />
                             </div>
                             <!--footer-->
                             <div
@@ -199,15 +220,15 @@
                                 <button
                                     class="text-red-500 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
                                     type="button" onclick="toggleModal('modal-id')">
-                                    Close
+                                    Tutup
                                 </button>
                                 <button
                                     class="bg-emerald-500 text-white active:bg-emerald-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
-                                    type="button" onclick="toggleModal('modal-id')">
-                                    Save Changes
+                                    type="submit" onclick="toggleModal('modal-id')">
+                                    Tambah
                                 </button>
                             </div>
-                        </div>
+                        </form>
                     </div>
                 </div>
                 <div class="hidden opacity-25 fixed inset-0 z-40 bg-black" id="modal-id-backdrop"></div>
@@ -244,13 +265,19 @@
                                 31-03-2008
                             </th>
                             <td class="px-6 py-6">
-                                Risna fania
+                                Risna faniaasd
                             </td>
                             <td class="px-6 py-6 flex gap-5 ">
                                 <a href=""
-                                    class="flex items-center gap-2 text-white bg-red-500 px-3 py-2 rounded-md"><x-monoicon-delete-alt class="w-4 h-4" />
+                                    class="flex items-center gap-2 text-white bg-red-500 px-3 py-2 rounded-md"><x-monoicon-delete-alt
+                                        class="w-4 h-4" />
                                     Hapus</a>
-                                <a href="" class="flex items-center gap-2 text-white bg-emerald-500 px-3 py-2 rounded-md"><x-ri-edit-line class="w-4 h-4" />Detail</a>
+                                <a href=""
+                                    class="flex items-center gap-2 text-white bg-emerald-500 px-3 py-2 rounded-md"><x-ri-edit-line
+                                        class="w-4 h-4" />Edit</a>
+                                <a href=""
+                                    class="flex items-center gap-2 text-white bg-amber-400 px-3 py-2 rounded-md"><x-letsicon-search
+                                        class="w-4 h-4" />Detail</a>
                             </td>
                         </tr>
                         <tr
@@ -264,11 +291,41 @@
                             </td>
                             <td class="px-6 py-6 flex gap-5">
                                 <a href=""
-                                    class="flex items-center gap-2 text-white bg-red-500 px-3 py-2 rounded-md"><x-monoicon-delete-alt class="w-4 h-4" />
+                                    class="flex items-center gap-2 text-white bg-red-500 px-3 py-2 rounded-md"><x-monoicon-delete-alt
+                                        class="w-4 h-4" />
                                     Hapus</a>
-                                <a href="" class="flex items-center gap-2 text-white bg-emerald-500 px-3 py-2 rounded-md"><x-ri-edit-line class="w-4 h-4" />Detail</a>
+                                <a href=""
+                                    class="flex items-center gap-2 text-white bg-emerald-500 px-3 py-2 rounded-md"><x-ri-edit-line
+                                        class="w-4 h-4" />Edit</a>
+                                <a href=""
+                                    class="flex items-center gap-2 text-white bg-amber-400 px-3 py-2 rounded-md"><x-letsicon-search
+                                        class="w-4 h-4" />Detail</a>
                             </td>
                         </tr>
+                        @foreach ($absensi as $absensi)
+                            <tr
+                                class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
+                                <th scope="row"
+                                    class="px-6 py-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                    {{ $absensi->tanggal }}
+                                </th>
+                                <td class="px-6 py-6">
+                                    Risna fania
+                                </td>
+                                <td class="px-6 py-6 flex gap-5">
+                                    <a href=""
+                                        class="flex items-center gap-2 text-white bg-red-500 px-3 py-2 rounded-md"><x-monoicon-delete-alt
+                                            class="w-4 h-4" />
+                                        Hapus</a>
+                                    <a href=""
+                                        class="flex items-center gap-2 text-white bg-emerald-500 px-3 py-2 rounded-md"><x-ri-edit-line
+                                            class="w-4 h-4" />Edit</a>
+                                    <a href=""
+                                        class="flex items-center gap-2 text-white bg-amber-400 px-3 py-2 rounded-md"><x-letsicon-search
+                                            class="w-4 h-4" />Detail</a>
+                                </td>
+                            </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>
