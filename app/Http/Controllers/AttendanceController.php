@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Attendance;
+use App\Models\Student;
 use Illuminate\Http\Request;
 
 class AttendanceController extends Controller
@@ -23,55 +24,36 @@ class AttendanceController extends Controller
         return redirect()->route('kelas.detail-kelas' , ['class_id' => $class_id]);
     }
 
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
+    public function index($class_id , $absensi_id)
     {
-        //
+        $student = Student::where('classes_id', $class_id)->get();
+        $attandance = Attendance::where('id', $absensi_id)->first();
+        return view('kelas.absensi.index' , ['murid' => $student , 'absensi' => $attandance]);
     }
-
-    /**
-     * Show the form for creating a new resource.
-     */
 
     public function create()
     {
         //
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request) {}
 
-    /**
-     * Display the specified resource.
-     */
+
     public function show(string $id)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit(string $id)
     {
         //
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(Request $request, string $id)
     {
         //
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(string $id)
     {
         //

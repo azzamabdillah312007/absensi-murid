@@ -21,6 +21,8 @@ Route::get('/kelas-saya/detail-kelas/{class_id}' , [ClassController::class , 'sh
 Route::get('/kelas-saya/detail-kelas/{class_id}/tambah-murid' , [ClassController::class , 'showAddStudent'])->name('kelas.tambah-murid')->middleware('auth');
 Route::post('/kelas-saya/detail-kelas/{class_id}/tambah-murid' , [ClassController::class , 'addStudent'])->name('kelas.create-murid')->middleware('auth');
 Route::post('/kelas-saya/detail-kelas/{class_id}' , [AttendanceController::class , 'addAttendance'])->name('kelas.create-absensi')->middleware('auth');
+Route::get('/kelas-saya/detail-kelas/{class_id}/detail-absensi/{absensi_id}' , [AttendanceController::class , 'index'])->name('kelas.index-absensi')->middleware('auth');
+
 
 
 

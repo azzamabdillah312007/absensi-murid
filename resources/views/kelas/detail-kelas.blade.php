@@ -19,17 +19,13 @@
         <section class="py-10">
             <div class=" bg-white rounded-full shadow-md flex justify-between items-center py-5 px-8 mb-4">
                 <div class="w-full max-w-sm min-w-[200px]">
-                    {{-- <input
-                        class="w-full bg-white placeholder:text-slate-400 text-slate-700 text-sm border border-slate-200 rounded-md px-3 py-2 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-300 shadow-sm focus:shadow"
-                        placeholder="Cari kelas"> --}}
                     <h2 class="text-2xl text text-gray-800 font-semibold">Daftar murid di kelas</h2>
                 </div>
 
                 <button type="button"
                     class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
                     <a href="/kelas-saya/detail-kelas/{{ $detailKelas->id }}/tambah-murid"
-                        class="flex items-center gap-2">Tambah Murid
-                        <x-letsicon-user class="w-4 h-4" />
+                        class="flex items-center gap-2"> <x-letsicon-user class="w-4 h-4" />Tambah Murid
                     </a></button>
             </div>
 
@@ -51,7 +47,7 @@
                                 Jenis Kelamin
                             </th>
                             <th scope="col" class="px-6 py-6">
-                                Orang
+                                Orang Tua
                             </th>
                             <th scope="col" class="px-6 py-6">
                                 Aksi
@@ -59,77 +55,6 @@
                         </tr>
                     </thead>
                     <tbody>
-
-
-
-                        <tr
-                            class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
-                            <th scope="row"
-                                class="px-6 py-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                Azzam Abdillah
-                            </th>
-                            <td class="px-6 py-6">
-                                090909
-                            </td>
-                            <td class="px-6 py-6">
-                                089291929192
-                            </td>
-                            <td class="px-6 py-6">
-                                Laki Laki
-                            </td>
-                            <td class="px-6 py-6">
-                                Sandi Eka Cahyadi
-                            </td>
-                            <td class="px-6 py-6 flex gap-5">
-                                <a href=""
-                                    class="flex items-center gap-2 text-white bg-red-500 px-3 py-2 rounded-md"><x-monoicon-delete-alt
-                                        class="w-4 h-4" />
-                                    Hapus</a>
-                                <a href=""
-                                    class="flex items-center gap-2 text-white bg-emerald-500 px-3 py-2 rounded-md"><x-ri-edit-line
-                                        class="w-4 h-4" />Edit</a>
-                                <a href=""
-                                    class="flex items-center gap-2 text-white bg-amber-400 px-3 py-2 rounded-md"><x-letsicon-search
-                                        class="w-4 h-4" />Detail</a>
-                            </td>
-                        </tr>
-
-                        <tr
-                            class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
-                            <th scope="row"
-                                class="px-6 py-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                Azzam Abdillah
-                            </th>
-                            <td class="px-6 py-6">
-                                090909
-                            </td>
-                            <td class="px-6 py-6">
-                                089291929192
-                            </td>
-                            <td class="px-6 py-6">
-                                Laki Laki
-                            </td>
-                            <td class="px-6 py-6">
-                                Sandi Eka Cahyadi
-                            </td>
-                            <td class="px-6 py-6 flex gap-5">
-                                <a href=""
-                                    class="flex items-center gap-2 text-white bg-red-500 px-3 py-2 rounded-md"><x-monoicon-delete-alt
-                                        class="w-4 h-4" />
-                                    Hapus</a>
-                                <a href=""
-                                    class="flex items-center gap-2 text-white bg-emerald-500 px-3 py-2 rounded-md"><x-ri-edit-line
-                                        class="w-4 h-4" />Edit</a>
-                                <a href=""
-                                    class="flex items-center gap-2 text-white bg-amber-400 px-3 py-2 rounded-md"><x-letsicon-search
-                                        class="w-4 h-4" />Detail</a>
-                            </td>
-                        </tr>
-
-                        @if (empty($murid))
-                            <h1 class="text-3xl text-gray-800 text-center">Anda belum mempunyai murid</h1>
-                        @endif
-
                         @foreach ($murid as $murid)
                             <tr
                                 class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
@@ -159,10 +84,10 @@
                                             class="w-4 h-4" />
                                         Hapus</a>
                                     <a href=""
-                                        class="flex items-center gap-2 text-white bg-emerald-500 px-3 py-2 rounded-md"><x-ri-edit-line
+                                        class="flex items-center gap-2 text-white bg-amber-400 px-3 py-2 rounded-md"><x-ri-edit-line
                                             class="w-4 h-4" />Edit</a>
                                     <a href=""
-                                        class="flex items-center gap-2 text-white bg-amber-400 px-3 py-2 rounded-md"><x-letsicon-search
+                                        class="flex items-center gap-2 text-white  bg-emerald-500  px-3 py-2 rounded-md"><x-letsicon-search
                                             class="w-4 h-4" />Detail</a>
                                 </td>
                             </tr>
@@ -250,58 +175,11 @@
                                 Tanggal absensi
                             </th>
                             <th scope="col" class="px-6 py-6">
-                                Nama guru
-                            </th>
-                            <th scope="col" class="px-6 py-6">
                                 Aksi
                             </th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr
-                            class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
-                            <th scope="row"
-                                class="px-6 py-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                31-03-2008
-                            </th>
-                            <td class="px-6 py-6">
-                                Risna faniaasd
-                            </td>
-                            <td class="px-6 py-6 flex gap-5 ">
-                                <a href=""
-                                    class="flex items-center gap-2 text-white bg-red-500 px-3 py-2 rounded-md"><x-monoicon-delete-alt
-                                        class="w-4 h-4" />
-                                    Hapus</a>
-                                <a href=""
-                                    class="flex items-center gap-2 text-white bg-emerald-500 px-3 py-2 rounded-md"><x-ri-edit-line
-                                        class="w-4 h-4" />Edit</a>
-                                <a href=""
-                                    class="flex items-center gap-2 text-white bg-amber-400 px-3 py-2 rounded-md"><x-letsicon-search
-                                        class="w-4 h-4" />Detail</a>
-                            </td>
-                        </tr>
-                        <tr
-                            class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
-                            <th scope="row"
-                                class="px-6 py-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                31-03-2008
-                            </th>
-                            <td class="px-6 py-6">
-                                Risna fania
-                            </td>
-                            <td class="px-6 py-6 flex gap-5">
-                                <a href=""
-                                    class="flex items-center gap-2 text-white bg-red-500 px-3 py-2 rounded-md"><x-monoicon-delete-alt
-                                        class="w-4 h-4" />
-                                    Hapus</a>
-                                <a href=""
-                                    class="flex items-center gap-2 text-white bg-emerald-500 px-3 py-2 rounded-md"><x-ri-edit-line
-                                        class="w-4 h-4" />Edit</a>
-                                <a href=""
-                                    class="flex items-center gap-2 text-white bg-amber-400 px-3 py-2 rounded-md"><x-letsicon-search
-                                        class="w-4 h-4" />Detail</a>
-                            </td>
-                        </tr>
                         @foreach ($absensi as $absensi)
                             <tr
                                 class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
@@ -309,20 +187,14 @@
                                     class="px-6 py-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                                     {{ $absensi->tanggal }}
                                 </th>
-                                <td class="px-6 py-6">
-                                    Risna fania
-                                </td>
                                 <td class="px-6 py-6 flex gap-5">
                                     <a href=""
                                         class="flex items-center gap-2 text-white bg-red-500 px-3 py-2 rounded-md"><x-monoicon-delete-alt
                                             class="w-4 h-4" />
                                         Hapus</a>
-                                    <a href=""
-                                        class="flex items-center gap-2 text-white bg-emerald-500 px-3 py-2 rounded-md"><x-ri-edit-line
-                                            class="w-4 h-4" />Edit</a>
-                                    <a href=""
-                                        class="flex items-center gap-2 text-white bg-amber-400 px-3 py-2 rounded-md"><x-letsicon-search
-                                            class="w-4 h-4" />Detail</a>
+                                    <a href="/kelas-saya/detail-kelas/{{ $detailKelas->id }}/detail-absensi/{{ $absensi->id }}"
+                                        class="flex items-center gap-2 text-white bg-emerald-500 px-3 py-2 rounded-md"><x-letsicon-search
+                                            class="w-4 h-4" />Lihat</a>
                                 </td>
                             </tr>
                         @endforeach
